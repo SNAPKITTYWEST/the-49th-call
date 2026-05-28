@@ -1,0 +1,12 @@
+[package]
+name    = "the-49th-call"
+version = "1.0.0"
+edition = "2021"
+description = "Enochian Reconstruction Engine — four-pass constraint solver for the 49th Call"
+license = "MIT"
+keywords = ["enochian", "prolog", "linguistics", "constraint-solving", "ancient-scripts"]
+categories = ["science"]
+
+[lib]
+name = "call49"
+path = "lib.rs"
