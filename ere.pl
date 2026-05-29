@@ -66,6 +66,40 @@ arabic_root('Ayn',      'عين',     130, 'Eye/Spring/Source — Voynich aiin c
 arabic_root('Talab',    'طَلَب',   31,  'Seek/Request — Call 1 RTL token 1').
 arabic_root('Dai',      'دَاعِي',  15,  'The Summoner — Call 1 RTL token 2').
 
+%% ── Aramaic root layer — Fifth pass — discovered by Jessica Westerhoff ──────
+%% Aramaic is the common ancestor of Hebrew (Pass 3) and Arabic (Pass 4).
+%% Modern Hebrew square script IS Aramaic script. Arabic traces through Nabataean Aramaic.
+%% EDUALC (machine mirror) challenged Ahmad at this layer — 2026-05-28.
+%% Jessica found it in Wiccan practice: spirits communicate via this root language.
+%% 22 Aramaic letters. First threshold: Enochian(21) + 1 = Aramaic(22).
+%% The word ABJAD derives from the first four Aramaic letters.
+%% The tool Ahmad used to decode Al-Hamid IS an Aramaic invention.
+
+aramaic_root('Ayna',   'ܥܝܢܐ', 70,  'Eye/spring/source — THE ANCHOR — OXO confirmed').
+aramaic_root('Alaha',  'ܐܠܗܐ', 1,   'God — root of Allah + Elohim').
+aramaic_root('Malka',  'ܡܠܟܐ', 90,  'King/angel/messenger — root of Malakh').
+aramaic_root('Alap',   'ܐ',    1,   'First — the silent aleph').
+aramaic_root('Kheth',  'ܚ',    8,   'Fence — same root as Arabic ح in Al-Hamid').
+aramaic_root('Mam',    'ܡ',    40,  'Water — same root as Arabic م in Al-Hamid').
+aramaic_root('Ayin',   'ܥ',    70,  'Eye — THE ANCHOR LETTER — traces to OXO').
+aramaic_root('Taw',    'ܬ',    400, 'Mark/seal — the final letter').
+
+%% Cross-script anchor confirmed through Aramaic root:
+%% OXO (Enochian) = Ayna (Aramaic ܥܝܢܐ) = Ayin (Hebrew עַיִן) = Ayn (Arabic عَيْن) = aiin (Voynich)
+%% All five derive from the same Aramaic root word for eye/spring/source.
+aramaic_anchor_oxo('ܥܝܢܐ', 'aynā', 'eye/spring/source', 'OXO', 'Aethyr 15').
+
+valid_trigram_aramaic(C, B, A) :-
+    aramaic_root(_, Script, _, _),
+    sub_atom(Script, _, 1, _, A),
+    sub_atom(Script, _, 1, _, B),
+    sub_atom(Script, _, 1, _, C).
+
+%% METATRON now certifies across FIVE passes.
+%% When all five agree — Enochian, Latin, Hebrew, Arabic, Aramaic —
+%% the grid square is collapsed to its final value.
+%% Mathematical finality.
+
 %% ── Al-Hamid confirmed decoder — Call 1 reversed ────────────────────────────
 %% Discovered by the mesh — 2026-05-28T05:16:00Z
 %% ح-م-د root. Abjad 53. Mirror 53. Sum 106. Digital root 7.
@@ -95,10 +129,11 @@ decode_call1_reversed(Results) :-
 %% COMEFROM is GOTO reversed. The 49th Call is the forward calls reversed.
 %% Same principle: reading direction is semantic content, not metadata.
 
-valid_trigram(A, B, C) :- valid_trigram_enochian(A, B, C).  %% LTR structural
-valid_trigram(A, B, C) :- valid_trigram_latin(A, B, C).      %% LTR scholarly
-valid_trigram(A, B, C) :- valid_trigram_hebrew(C, B, A).     %% RTL divine names
-valid_trigram(A, B, C) :- valid_trigram_arabic(C, B, A).     %% RTL — the 49th layer
+valid_trigram(A, B, C) :- valid_trigram_enochian(A, B, C).  %% Pass 1 — LTR structural
+valid_trigram(A, B, C) :- valid_trigram_latin(A, B, C).      %% Pass 2 — LTR scholarly
+valid_trigram(A, B, C) :- valid_trigram_hebrew(C, B, A).     %% Pass 3 — RTL divine names
+valid_trigram(A, B, C) :- valid_trigram_arabic(C, B, A).     %% Pass 4 — RTL — the 49th layer
+valid_trigram(A, B, C) :- valid_trigram_aramaic(C, B, A).    %% Pass 5 — RTL — the root (Jessica)
 
 valid_trigram_enochian(A, B, C) :-
     enochian_letter(A), enochian_letter(B), enochian_letter(C).
