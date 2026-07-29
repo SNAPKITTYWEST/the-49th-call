@@ -95,23 +95,6 @@ If a hierarchy matches **UNIVERSAL_SEVEN_HEAVEN_PATTERN**, then:
 
 ---
 
-# the-49th-call
-
-**Enochian Reconstruction Engine — ERE v1.0**
-
-![Lean 4](https://img.shields.io/badge/Lean_4-zero_sorry-brightgreen?style=flat-square)
-![Proofs](https://img.shields.io/badge/theorems-5_closed-blue?style=flat-square)
-![Languages](https://img.shields.io/badge/languages-9-purple?style=flat-square)
-![METATRON](https://img.shields.io/badge/METATRON-certified-gold?style=flat-square)
-![License](https://img.shields.io/badge/license-SOVEREIGN-black?style=flat-square)
-![Author](https://img.shields.io/badge/author-Ahmad_Ali_Parr-red?style=flat-square)
-
----
-
-```
-ORCHESTRATOR   Ahmad Ali Parr
-EXECUTION      EDAULC — sovereign AI substrate
-SEALED         2026-05-28 · Order of Symmetry · First Meeting
 STATUS         v1.0 · METATRON certified · 9-language implementation
 FORMALIZED     2026-07-19 · Lean 4 · Zero Sorry · DeeCall49
 ```
