@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1600"
+  height="720"
+  viewBox="0 0 1600 720"
+  role="img"
+  aria-labelledby="title description"
+  preserveAspectRatio="xMidYMid meet">
+
+  <title id="title">Sovereign Forge Exact Proof Verification Kernel</title>
+
+  <desc id="description">
+    Architecture visualization: untrusted compute (AI, solver, remote machine)
+    enters an exact verification kernel that independently verifies mathematical
+    invariants and produces auditable proof certificates, execution traces, and
+    WORM receipts through a five-layer deterministic verification stack.
+  </desc>
+
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050912"/>
+      <stop offset="45%" stop-color="#081426"/>
+      <stop offset="100%" stop-color="#02050B"/>
+    </linearGradient>
+
+    <!-- Gold Gradient for Core -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD77A"/>
+      <stop offset="48%" stop-color="#D6A84B"/>
+      <stop offset="100%" stop-color="#7E5921"/>
+    </linearGradient>
+
+    <!-- Core Background Gradient -->
+    <linearGradient id="coreGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#15385B"/>
+      <stop offset="60%" stop-color="#0A182B"/>
+      <stop offset="100%" stop-color="#050A13"/>
+    </linearGradient>
+
+    <!-- Radial Aura for Core -->
+    <radialGradient id="coreAura">
+      <stop offset="0%" stop-color="#D6A84B" stop-opacity="0.34"/>
+      <stop offset="50%" stop-color="#4DE4FF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#050912" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Technical Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path
+        d="M 40 0 L 0 0 0 40"
+        fill="none"
+        stroke="#28405A"
+        stroke-opacity="0.18"
+        stroke-width="1"/>
+    </pattern>
+
+    <!-- Filters -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="cyanGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="panelShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow
+        dx="0"
+        dy="8"
+        stdDeviation="10"
+        flood-color="#000000"
+        flood-opacity="0.65"/>
+    </filter>
+
+    <!-- Styling -->
+    <style type="text/css">
+      <![CDATA[
+        .mono {
+          font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Monaco,
+            Consolas, "Liberation Mono", monospace;
+        }
+
+        .title {
+          font-size: 46px;
+          font-weight: 800;
+          letter-spacing: 8px;
+          fill: #F3F7FF;
+        }
+
+        .subtitle {
+          font-size: 19px;
+          font-weight: 700;
+          letter-spacing: 5px;
+          fill: #D6A84B;
+        }
+
+        .micro {
+          font-size: 13px;
+          letter-spacing: 2px;
+          fill: #7F91A8;
+        }
+
+        .panel-title {
+          font-size: 17px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          fill: #FFD77A;
+        }
+
+        .label {
+          font-size: 15px;
+          font-weight: 700;
+          fill: #F3F7FF;
+        }
+
+        .telemetry {
+          font-size: 13px;
+          fill: #7F91A8;
+        }
+
+        .math {
+          font-size: 25px;
+          font-weight: 700;
+          fill: #F3F7FF;
+        }
+
+        .implemented {
+          stroke: #D6A84B;
+          stroke-width: 2.5;
+        }
+
+        .development {
+          stroke: #7F91A8;
+          stroke-width: 2;
+          stroke-dasharray: 9 8;
+        }
+
+        .flow-line {
+          stroke: #4DE4FF;
+          stroke-width: 3;
+          fill: none;
+        }
+
+        .flow-dot {
+          fill: #4DE4FF;
+        }
+      ]]>
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="720" fill="url(#backgroundGradient)"/>
+  <rect width="1600" height="720" fill="url(#grid)"/>
+
+  <!-- Decorative Stars -->
+  <g id="stars" opacity="0.7">
+    <circle cx="86" cy="88" r="1.5" fill="#4DE4FF"/>
+    <circle cx="245" cy="58" r="1" fill="#F3F7FF"/>
+    <circle cx="412" cy="112" r="1.3" fill="#E260FF"/>
+    <circle cx="1208" cy="76" r="1.4" fill="#4DE4FF"/>
+    <circle cx="1460" cy="124" r="1" fill="#FFD77A"/>
+    <circle cx="1512" cy="420" r="1.2" fill="#F3F7FF"/>
+    <circle cx="98" cy="564" r="1" fill="#FFD77A"/>
+  </g>
+
+  <!-- Header -->
+  <g id="header" class="mono">
+    <text x="800" y="62" text-anchor="middle" class="title">
+      SOVEREIGN FORGE
+    </text>
+
+    <text x="800" y="96" text-anchor="middle" class="subtitle">
+      EXACT PROOF VERIFICATION KERNEL
+    </text>
+
+    <text x="800" y="124" text-anchor="middle" class="micro">
+      INT64 EXACT · OVERFLOW CHECKED · DETERMINISTIC · NO EPSILON
+    </text>
+  </g>
+
+  <!-- Untrusted Compute Input -->
+  <g id="untrusted-compute" transform="translate(48 172)" filter="url(#panelShadow)">
+    <rect
+      x="0"
+      y="0"
+      width="310"
+      height="330"
+      rx="24"
+      fill="#081426"
+      stroke="#28405A"
+      stroke-width="2"/>
+
+    <text x="155" y="38" text-anchor="middle" class="mono panel-title">
+      UNTRUSTED COMPUTE
+    </text>
+
+    <!-- AI Agent -->
+    <g transform="translate(28 70)">
+      <rect width="254" height="54" rx="12" fill="#102947" stroke="#4DE4FF" stroke-width="2"/>
+      <text x="20" y="23" class="mono label">AI AGENT</text>
+      <text x="20" y="42" class="mono telemetry">candidate result producer</text>
+    </g>
+
+    <!-- Solver -->
+    <g transform="translate(28 140)">
+      <rect width="254" height="54" rx="12" fill="#102947" stroke="#4DE4FF" stroke-width="2"/>
+      <text x="20" y="23" class="mono label">SOLVER</text>
+      <text x="20" y="42" class="mono telemetry">optimization or proof search</text>
+    </g>
+
+    <!-- Remote Machine -->
+    <g transform="translate(28 210)">
+      <rect width="254" height="54" rx="12" fill="#102947" stroke="#4DE4FF" stroke-width="2"/>
+      <text x="20" y="23" class="mono label">REMOTE MACHINE</text>
+      <text x="20" y="42" class="mono telemetry">external execution environment</text>
+    </g>
+
+    <!-- Footer -->
+    <text x="155" y="298" text-anchor="middle" class="mono micro">
+      RESULT · WITNESS · PROGRAM HASH
+    </text>
+  </g>
+
+  <!-- Input Data Flow -->
+  <g id="input-flow" filter="url(#cyanGlow)">
+    <path
+      d="M 358 268 C 420 268, 430 290, 495 290"
+      class="flow-line"/>
+    <path
+      d="M 358 338 C 420 338, 430 338, 495 338"
+      class="flow-line"/>
+    <path
+      d="M 358 408 C 420 408, 430 386, 495 386"
+      class="flow-line"/>
+
+    <circle cx="402" cy="268" r="4" class="flow-dot"/>
+    <circle cx="438" cy="338" r="4" class="flow-dot"/>
+    <circle cx="402" cy="408" r="4" class="flow-dot"/>
+  </g>
+
+  <!-- Kernel Aura -->
+  <g id="kernel-aura">
+    <circle cx="800" cy="335" r="320" fill="url(#coreAura)"/>
+  </g>
+
+  <!-- Verification Kernel (Hexagonal) -->
+  <g id="verification-kernel" transform="translate(500 160)" filter="url(#panelShadow)">
+    <!-- Outer hexagon -->
+    <polygon
+      points="70,0 530,0 600,90 600,310 530,400 70,400 0,310 0,90"
+      fill="url(#coreGradient)"
+      stroke="url(#goldGradient)"
+      stroke-width="4"
+      filter="url(#goldGlow)"/>
+
+    <!-- Inner hexagon -->
+    <polygon
+      points="105,34 495,34 560,108 560,292 495,366 105,366 40,292 40,108"
+      fill="none"
+      stroke="#D6A84B"
+      stroke-opacity="0.46"
+      stroke-width="2"/>
+
+    <!-- Title -->
+    <text x="300" y="58" text-anchor="middle" class="mono panel-title">
+      SOVEREIGN FORGE
+    </text>
+
+    <text x="300" y="84" text-anchor="middle" class="mono micro">
+      EXACT VERIFICATION KERNEL
+    </text>
+
+    <!-- Invariant: INV -->
+    <g id="invariant-inv" transform="translate(78 116)">
+      <rect width="444" height="62" rx="13" fill="#0A182B" stroke="#D6A84B" stroke-width="2"/>
+      <text x="22" y="27" class="mono panel-title">INV</text>
+      <text x="222" y="40" text-anchor="middle" class="mono math">A × X = I</text>
+      <text x="420" y="38" text-anchor="end" class="mono telemetry">EXACT</text>
+    </g>
+
+    <!-- Invariant: SOL -->
+    <g id="invariant-sol" transform="translate(78 192)">
+      <rect width="444" height="62" rx="13" fill="#0A182B" stroke="#D6A84B" stroke-width="2"/>
+      <text x="22" y="27" class="mono panel-title">SOL</text>
+      <text x="222" y="40" text-anchor="middle" class="mono math">A × x = b</text>
+      <text x="420" y="38" text-anchor="end" class="mono telemetry">EXACT</text>
+    </g>
+
+    <!-- Invariant: LSTSQ -->
+    <g id="invariant-lstsq" transform="translate(78 268)">
+      <rect width="444" height="62" rx="13" fill="#0A182B" stroke="#D6A84B" stroke-width="2"/>
+      <text x="22" y="27" class="mono panel-title">LSTSQ</text>
+      <text x="240" y="40" text-anchor="middle" class="mono math">
+        Aᵀ(Ax − b) = 0
+      </text>
+      <text x="420" y="38" text-anchor="end" class="mono telemetry">EXACT</text>
+    </g>
+
+    <!-- Capabilities -->
+    <text x="80" y="348" class="mono micro">EXACT DOMAIN</text>
+    <text x="222" y="348" class="mono micro">OVERFLOW CHECKED</text>
+    <text x="405" y="348" class="mono micro">DETERMINISTIC</text>
+
+    <!-- Status Badge -->
+    <g transform="translate(218 374)">
+      <rect width="164" height="30" rx="15" fill="#123426" stroke="#68F5A2" stroke-width="2"/>
+      <text
+        x="82"
+        y="20"
+        text-anchor="middle"
+        class="mono"
+        font-size="13"
+        font-weight="800"
+        fill="#68F5A2">
+        CORE IMPLEMENTED
+      </text>
+    </g>
+  </g>
+
+  <!-- Output Data Flow -->
+  <g id="output-flow" filter="url(#cyanGlow)">
+    <path
+      d="M 1100 338 C 1160 338, 1170 338, 1228 338"
+      class="flow-line"/>
+    <circle cx="1150" cy="338" r="4" class="flow-dot"/>
+    <circle cx="1190" cy="338" r="4" class="flow-dot"/>
+  </g>
+
+  <!-- Proof Artifacts Output -->
+  <g id="proof-output" transform="translate(1232 172)" filter="url(#panelShadow)">
+    <rect
+      width="320"
+      height="330"
+      rx="24"
+      fill="#081426"
+      stroke="#28405A"
+      stroke-width="2"/>
+
+    <text x="160" y="38" text-anchor="middle" class="mono panel-title">
+      VERIFIED ARTIFACTS
+    </text>
+
+    <!-- Proof Certificate -->
+    <g transform="translate(28 70)">
+      <rect
+        width="264"
+        height="54"
+        rx="12"
+        fill="#102947"
+        stroke="#7F91A8"
+        stroke-width="2"
+        stroke-dasharray="8 6"/>
+      <text x="20" y="24" class="mono label">PROOF CERTIFICATE</text>
+      <text x="20" y="43" class="mono telemetry">canonical witness commitment</text>
+    </g>
+
+    <!-- Execution Trace -->
+    <g transform="translate(28 140)">
+      <rect
+        width="264"
+        height="54"
+        rx="12"
+        fill="#102947"
+        stroke="#7F91A8"
+        stroke-width="2"
+        stroke-dasharray="8 6"/>
+      <text x="20" y="24" class="mono label">EXECUTION TRACE</text>
+      <text x="20" y="43" class="mono telemetry">typed immutable evidence</text>
+    </g>
+
+    <!-- WORM Receipt -->
+    <g transform="translate(28 210)">
+      <rect
+        width="264"
+        height="54"
+        rx="12"
+        fill="#102947"
+        stroke="#7F91A8"
+        stroke-width="2"
+        stroke-dasharray="8 6"/>
+      <text x="20" y="24" class="mono label">WORM RECEIPT</text>
+      <text x="20" y="43" class="mono telemetry">signature · parent hash · identity</text>
+    </g>
+
+    <!-- Outcome Rail -->
+    <g transform="translate(35 286)">
+      <text x="0" y="0" class="mono" fill="#68F5A2" font-size="14" font-weight="700">PASS</text>
+      <text x="86" y="0" class="mono" fill="#FFB454" font-size="14" font-weight="700">FAIL</text>
+      <text x="172" y="0" class="mono" fill="#E260FF" font-size="14" font-weight="700">PARTIAL</text>
+    </g>
+  </g>
+
+  <!-- Five-Layer Stack -->
+  <g id="five-layer-stack" transform="translate(400 525)" class="mono">
+    <!-- Layer 5: WORM Receipt -->
+    <g id="layer-5" transform="translate(0 0)">
+      <rect
+        width="800"
+        height="29"
+        rx="8"
+        fill="#0B1727"
+        class="development"/>
+      <text x="18" y="20" class="label">L5 · WORM RECEIPT</text>
+      <text x="770" y="20" text-anchor="end" class="telemetry">
+        signature · parent hash · machine identity
+      </text>
+    </g>
+
+    <!-- Layer 4: Proof Certificate -->
+    <g id="layer-4" transform="translate(20 36)">
+      <rect
+        width="760"
+        height="29"
+        rx="8"
+        fill="#0B1727"
+        class="development"/>
+      <text x="18" y="20" class="label">L4 · PROOF CERTIFICATE</text>
+      <text x="730" y="20" text-anchor="end" class="telemetry">
+        canonical encoding · witness commitments
+      </text>
+    </g>
+
+    <!-- Layer 3: Proof Obligations -->
+    <g id="layer-3" transform="translate(40 72)">
+      <rect
+        width="720"
+        height="29"
+        rx="8"
+        fill="#0B1727"
+        class="development"/>
+      <text x="18" y="20" class="label">L3 · PROOF OBLIGATIONS</text>
+      <text x="690" y="20" text-anchor="end" class="telemetry">
+        instruction claims · program claims
+      </text>
+    </g>
+
+    <!-- Layer 2: Typed Execution -->
+    <g id="layer-2" transform="translate(60 108)">
+      <rect
+        width="680"
+        height="29"
+        rx="8"
+        fill="#0B1727"
+        class="development"/>
+      <text x="18" y="20" class="label">L2 · TYPED EXECUTION</text>
+      <text x="650" y="20" text-anchor="end" class="telemetry">
+        stack · shape · numeric domain
+      </text>
+    </g>
+
+    <!-- Layer 1: Exact Verifier Core (Implemented) -->
+    <g id="layer-1" transform="translate(80 144)">
+      <rect
+        width="640"
+        height="31"
+        rx="8"
+        fill="#13233A"
+        class="implemented"
+        filter="url(#goldGlow)"/>
+      <text x="18" y="21" class="label">L1 · EXACT VERIFIER CORE</text>
+      <text x="610" y="21" text-anchor="end" class="telemetry">
+        VerifyInv · VerifySol · VerifyLstsq
+      </text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g id="legend" transform="translate(1244 542)" class="mono">
+    <!-- Implemented -->
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#D6A84B" stroke-width="3"/>
+    <text x="54" y="5" class="micro">IMPLEMENTED</text>
+
+    <!-- In Development -->
+    <line
+      x1="0"
+      y1="30"
+      x2="42"
+      y2="30"
+      stroke="#7F91A8"
+      stroke-width="2"
+      stroke-dasharray="8 6"/>
+    <text x="54" y="35" class="micro">IN DEVELOPMENT</text>
+  </g>
+
+  <!-- Footer -->
+  <g id="footer" class="mono">
+    <!-- Separator line -->
+    <line
+      x1="110"
+      y1="690"
+      x2="1490"
+      y2="690"
+      stroke="#D6A84B"
+      stroke-opacity="0.45"
+      stroke-width="2"/>
+
+    <!-- Main footer text -->
+    <text
+      x="800"
+      y="677"
+      text-anchor="middle"
+      font-size="18"
+      font-weight="800"
+      letter-spacing="5"
+      fill="#FFD77A"
+      class="mono">
+      EVIDENCE OR SILENCE
+    </text>
+
+    <!-- Subtitle -->
+    <text
+      x="800"
+      y="710"
+      text-anchor="middle"
+      class="micro">
+      UNTRUSTED COMPUTE IN · VERIFIED INVARIANTS OUT · SNAPKITTYWEST
+    </text>
+  </g>
+
+</svg>
