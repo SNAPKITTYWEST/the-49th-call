@@ -19,3 +19,7 @@ path = "lib.rs"
 lto           = true
 codegen-units = 1
 strip         = true
+[dependencies]
+
+[build-dependencies]
+cc = "1.0"

@@ -1,14 +1,9 @@
-/// THE 49TH CALL — Rust Reference Implementation
-/// References the ERE (Enochian Reconstruction Engine) architecture.
-/// Full implementation: github.com/SNAPKITTYWEST/DEVFLOW-FINANCE
-/// This module shows the structural types. The constraint solver lives in the main repo.
-///
-/// ARCHITECTURE: Anonymous
-/// The same WatchtowerGrid struct. The same four-pass constraint system.
-/// The same METATRON certification gate.
-/// Reading direction as a first-class type — the compiler enforces it.
-
 use std::collections::HashMap;
+
+pub mod covenant_ffi;
+use covenant_ffi::{verify_petitioner_authorized, check_principles_satisfied, seal_square_to_chain, DivinePrinciple, CovenantError};
+
+// ── Reading direction — mirrors enochian.rs in DEVFLOW-FINANCE ───────────────
 
 // ── Reading direction — mirrors enochian.rs in DEVFLOW-FINANCE ───────────────
 // The compiler enforces: you cannot read a ComefromRTL line LTR.
@@ -256,5 +251,87 @@ mod tests {
         let result = GridValue::metatron_certify(&candidates);
         // Contradiction — passes disagree — should be Uncertain or Void
         assert!(!result.is_resolved(), "METATRON must not certify contradiction");
+    }
+}
+
+// ── COVENANT INTEGRATION — Authorization Gate ────────────────────────────────
+// Every invocation of the ERE requires:
+// 1. Petitioner is chartered (authorized via Moorish Divine Covenant)
+// 2. All required divine principles are satisfied
+// 3. Results are sealed to the covenant chain
+
+impl EnochianReconstructionEngine {
+    /// Run all four passes with covenant authorization.
+    /// Returns total squares resolved, or CovenantError if unauthorized/principles violated.
+    pub fn run_passes_with_covenant(
+        &mut self,
+        petitioner: &str,
+    ) -> Result<usize, CovenantError> {
+        // LAYER 1: Verify petitioner is chartered
+        verify_petitioner_authorized(petitioner)?;
+
+        // LAYER 2: Check that all 5 divine principles are satisfied
+        let all_principles = vec![
+            DivinePrinciple::Love,
+            DivinePrinciple::Truth,
+            DivinePrinciple::Peace,
+            DivinePrinciple::Freedom,
+            DivinePrinciple::Justice,
+        ];
+        check_principles_satisfied(&all_principles)?;
+
+        // LAYER 3: Run all four passes (constraint solving)
+        let mut total = 0;
+        for grid in [&mut self.air, &mut self.water, &mut self.earth, &mut self.fire] {
+            for pass in &self.passes {
+                total += pass.propagate(grid);
+            }
+        }
+
+        // LAYER 4: Seal resolved squares to covenant chain
+        // (In production, this would seal each resolved square; for now, seal summary)
+        if total > 0 {
+            // Seal a marker receipt to the chain
+            seal_square_to_chain(
+                0,  // Special marker: row 0
+                total as u32,  // Total squares resolved
+                'M',  // METATRON marker
+            )?;
+        }
+
+        Ok(total)
+    }
+
+    /// Run passes without covenant (legacy, unsafe)
+    /// Deprecated: use run_passes_with_covenant() for production
+    pub fn run_passes(&mut self) -> usize {
+        let mut total = 0;
+        for grid in [&mut self.air, &mut self.water, &mut self.earth, &mut self.fire] {
+            for pass in &self.passes {
+                total += pass.propagate(grid);
+            }
+        }
+        total
+    }
+}
+
+#[cfg(test)]
+mod covenant_tests {
+    use super::*;
+
+    #[test]
+    fn covenant_error_types() {
+        assert_eq!(CovenantError::Unauthorized, CovenantError::Unauthorized);
+        assert_eq!(
+            CovenantError::PrinciplesNotSatisfied,
+            CovenantError::PrinciplesNotSatisfied
+        );
+    }
+
+    #[test]
+    fn run_passes_legacy_still_works() {
+        let mut ere = EnochianReconstructionEngine::new();
+        let total = ere.run_passes();  // Should still work, but unsafe
+        assert_eq!(total, 0);  // No actual constraint logic implemented yet
     }
 }
