@@ -3,6 +3,8 @@ use std::collections::HashMap;
 pub mod covenant_ffi;
 use covenant_ffi::{verify_petitioner_authorized, check_principles_satisfied, seal_square_to_chain, DivinePrinciple, CovenantError};
 pub mod sovereign_oracle;
+pub mod constraint_propagation;
+pub mod abjad_bridge;
 
 // ── Reading direction — mirrors enochian.rs in DEVFLOW-FINANCE ───────────────
 
