@@ -1,0 +1,32 @@
+import Lake
+open Lake DSL
+
+package «AramaicInvariant» where
+  dependencies := [
+    {name : "mathlib", src := Source.git "https://github.com/leanprover-community/mathlib4" "master"}
+  ]
+  version := v!"0.1.0"
+  authors := ["Claude Code (Haiku 4.5)", "Ahmad Ali Parr", "Jessica Westerhoff"]
+  license := "Business Source License 1.1"
+  description := "Aramaic Root Normalization Invariant Verification Protocol (SKC-ARAMAIC-INVARIANT-001)"
+
+lean_lib «AramaicInvariant»
+
+@[default_target]
+lean_exe test_runner where
+  root := `Tests.Main
+  supportInterpreter := true
+
+lean_exe parser where
+  root := `Internal.Parser
+  supportInterpreter := true
+
+lean_exe collision_search where
+  root := `Tests.CollisionSearch
+  supportInterpreter := true
+
+target parser_check : FilePath := do
+  let oFile := "parser_check.o"
+  let srcFile := "Verify/parser.c"
+  buildO oFile srcFile ["--Wall", "--std=c11"]
+  return oFile
