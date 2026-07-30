@@ -38,9 +38,24 @@ inductive Root : Type where
 
 /-- Classify root by its morphological properties -/
 def Root.classify : Root → RootClass
-  | Root.tri r => RootClass.strong  -- Simplified; real implementation checks radicals
-  | Root.quad r => RootClass.strong
-  sorry
+  | Root.tri r =>
+    -- Triconsonantal classification
+    if r.c1 = r.c2 ∧ r.c2 = r.c3 then
+      RootClass.strong  -- All identical (rare, default strong)
+    else if r.c1 = r.c2 ∨ r.c2 = r.c3 then
+      RootClass.geminate  -- Two consonants identical
+    else if r.c2.isWeak then
+      RootClass.hollow  -- Middle radical is weak (w/y)
+    else
+      RootClass.strong  -- All present, no special rules
+  | Root.quad r =>
+    -- Quadriliteral classification
+    if r.c1 = r.c2 ∧ r.c3 = r.c4 then
+      RootClass.geminate  -- Double-geminate quad
+    else if r.c2.isWeak ∨ r.c3.isWeak then
+      RootClass.hollow  -- Hollow quad
+    else
+      RootClass.strong  -- Strong quad
 
 /-- Extract consonants from root -/
 def Root.consonants : Root → List Letter

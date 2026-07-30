@@ -62,6 +62,11 @@ def Letter.phoneticClass : Letter → PhoneticClass
   | Letter.lamed | Letter.resh | Letter.mem | Letter.nun => PhoneticClass.sonorant
   | _ => PhoneticClass.sonorant  -- default
 
+/-- Weak radicals (semivowels: א, ה, ו, י) -/
+def Letter.isWeak : Letter → Bool
+  | Letter.aleph | Letter.he | Letter.vav | Letter.yod => true
+  | _ => false
+
 /-- IPA transliteration -/
 def Letter.ipa : Letter → String
   | Letter.aleph  => "ʔ"
@@ -87,8 +92,81 @@ def Letter.ipa : Letter → String
   | Letter.shin   => "ʃ"
   | Letter.tav    => "t"
 
-/-- Letters are totally ordered -/
-instance : LinearOrder Letter := by
-  sorry  -- To be proven in Decidability module
+/-- Letters are totally ordered (decidable lexicographic by enum index) -/
+def letterOrd : Letter → Letter → Ordering
+  | Letter.aleph, Letter.aleph => Ordering.eq
+  | Letter.aleph, _ => Ordering.lt
+  | _, Letter.aleph => Ordering.gt
+  | Letter.bet, Letter.bet => Ordering.eq
+  | Letter.bet, _ => Ordering.lt
+  | _, Letter.bet => Ordering.gt
+  | Letter.gimel, Letter.gimel => Ordering.eq
+  | Letter.gimel, _ => Ordering.lt
+  | _, Letter.gimel => Ordering.gt
+  | Letter.dalet, Letter.dalet => Ordering.eq
+  | Letter.dalet, _ => Ordering.lt
+  | _, Letter.dalet => Ordering.gt
+  | Letter.he, Letter.he => Ordering.eq
+  | Letter.he, _ => Ordering.lt
+  | _, Letter.he => Ordering.gt
+  | Letter.vav, Letter.vav => Ordering.eq
+  | Letter.vav, _ => Ordering.lt
+  | _, Letter.vav => Ordering.gt
+  | Letter.zayin, Letter.zayin => Ordering.eq
+  | Letter.zayin, _ => Ordering.lt
+  | _, Letter.zayin => Ordering.gt
+  | Letter.het, Letter.het => Ordering.eq
+  | Letter.het, _ => Ordering.lt
+  | _, Letter.het => Ordering.gt
+  | Letter.tet, Letter.tet => Ordering.eq
+  | Letter.tet, _ => Ordering.lt
+  | _, Letter.tet => Ordering.gt
+  | Letter.yod, Letter.yod => Ordering.eq
+  | Letter.yod, _ => Ordering.lt
+  | _, Letter.yod => Ordering.gt
+  | Letter.kaf, Letter.kaf => Ordering.eq
+  | Letter.kaf, _ => Ordering.lt
+  | _, Letter.kaf => Ordering.gt
+  | Letter.lamed, Letter.lamed => Ordering.eq
+  | Letter.lamed, _ => Ordering.lt
+  | _, Letter.lamed => Ordering.gt
+  | Letter.mem, Letter.mem => Ordering.eq
+  | Letter.mem, _ => Ordering.lt
+  | _, Letter.mem => Ordering.gt
+  | Letter.nun, Letter.nun => Ordering.eq
+  | Letter.nun, _ => Ordering.lt
+  | _, Letter.nun => Ordering.gt
+  | Letter.samekh, Letter.samekh => Ordering.eq
+  | Letter.samekh, _ => Ordering.lt
+  | _, Letter.samekh => Ordering.gt
+  | Letter.ayin, Letter.ayin => Ordering.eq
+  | Letter.ayin, _ => Ordering.lt
+  | _, Letter.ayin => Ordering.gt
+  | Letter.pe, Letter.pe => Ordering.eq
+  | Letter.pe, _ => Ordering.lt
+  | _, Letter.pe => Ordering.gt
+  | Letter.tsadi, Letter.tsadi => Ordering.eq
+  | Letter.tsadi, _ => Ordering.lt
+  | _, Letter.tsadi => Ordering.gt
+  | Letter.qof, Letter.qof => Ordering.eq
+  | Letter.qof, _ => Ordering.lt
+  | _, Letter.qof => Ordering.gt
+  | Letter.resh, Letter.resh => Ordering.eq
+  | Letter.resh, _ => Ordering.lt
+  | _, Letter.resh => Ordering.gt
+  | Letter.shin, Letter.shin => Ordering.eq
+  | Letter.shin, _ => Ordering.lt
+  | _, Letter.shin => Ordering.gt
+  | Letter.tav, Letter.tav => Ordering.eq
+
+instance : LinearOrder Letter :=
+  { le := fun a b => letterOrd a b ≠ Ordering.gt
+    le_refl := fun a => by simp [letterOrd]; decide
+    le_trans := fun a b c _ _ => by simp [letterOrd]; decide
+    le_antisymm := fun a b _ _ => by simp [letterOrd]; decide
+    decidableLE := fun a b => by decide
+    compare := letterOrd
+    compare_eq_lt_iff_lt := fun a b => by simp [letterOrd]; decide
+  }
 
 end AramaicInvariant

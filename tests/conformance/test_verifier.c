@@ -15,6 +15,9 @@
 #define TEST_FAIL(name, reason) printf("[FAIL] %s: %s\n", name, reason)
 #define ASSERT(cond, name, reason) do { if (!(cond)) { TEST_FAIL(name, reason); return 1; } } while(0)
 
+/* Forward declaration for negative tests (Phase 1, Step 3) */
+extern int run_negative_tests(void);
+
 static int test_verify_inv_identity_2x2(void)
 {
     int64_t I[] = {1, 0, 0, 1};
@@ -440,6 +443,9 @@ int main(void)
     failed += test_verify_inv_with_budget_valid();
     failed += test_verify_sol_with_budget_valid();
     printf("\n");
+
+    printf("[TEST GROUP] Negative Tests (Phase 1, Step 3)\n");
+    failed += run_negative_tests();
 
     if (failed == 0) {
         printf("=== ALL TESTS PASSED ===\n");
