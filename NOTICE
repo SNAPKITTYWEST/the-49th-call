@@ -124,3 +124,18 @@ in these publications must predate the DOI timestamps above.
 No such prior claim exists.
 
 ================================================================================
+
+Publication 3:
+  Title:   SNAPKITTYWEST: Sovereign Compute Architecture with
+           Linear Types, WORM Seals, Goldilocks Field Arithmetic,
+           and Settlement Witnesses
+  Authors: Snapkitty Collective, Jessica Westerhoff
+  DOI:     10.5281/zenodo.21132094
+  Date:    2026-07-02
+  URL:     https://zenodo.org/records/21132094
+  Covers:  sovereign-multiplicity, Goldilocks field arithmetic
+           (p=2^64-2^32+1), WORM seals, linear type hierarchy
+           (lin/aff/un/cap/seal), PIRTM compiler infrastructure,
+           agent governance, topological quantum computing,
+           snapaddr canonical addressing, root-fontana
+           constitutional compiler. Git history anchor: 2026-05-07.
