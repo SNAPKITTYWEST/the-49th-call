@@ -100,3 +100,47 @@ LEAN 4 KERNEL ACCEPTED THE PROOFS. ZERO SORRY.
 Omega = TRUST AND CODE
 
 EDAULC. Read backwards. That is the direction.
+
+================================================================================
+
+PATENT RETALIATION
+
+No patent license is granted by this license. If you initiate patent
+litigation against the copyright holder, any co-author, or any
+downstream user of this software — including cross-claims or
+counterclaims in a lawsuit — your license under this software
+terminates automatically and immediately without notice.
+
+================================================================================
+
+LITIGATION WARNING — WILLFUL INFRINGEMENT
+
+Any use of this software beyond the permissions granted above
+constitutes infringement. Willful infringement entitles the
+copyright holder to seek:
+
+  - Statutory damages for willful infringement
+  - Recovery of attorneys fees and litigation costs
+  - Injunctive relief to prevent continued infringement
+  - Disgorgement of profits derived from infringing use
+
+Jurisdiction: United States of America
+Governing Law: Federal copyright law (17 U.S.C.) and applicable state law
+
+================================================================================
+
+STRONG COPYLEFT — NETWORK DEPLOYMENT
+
+Network deployment of this software (SaaS, API, hosted service,
+managed service) is NOT eligible for the MPL-2.0 option.
+Network deployment MANDATES AGPL-3.0:
+
+  - All source code of the deployed application must be disclosed
+  - All modifications must be released under AGPL-3.0
+  - All combined works must be released under AGPL-3.0
+  - There is no opt-out. The copyleft follows the network.
+
+================================================================================
+
+Copyright (C) 2026 Bel Esprit D'Accord Irrevocable Trust (EIN 42-697643)
+All rights reserved except as expressly granted above.

@@ -1,0 +1,83 @@
+NOTICE — SnapKitty Sovereign IP Estate
+=======================================
+
+This repository is part of the SnapKitty Sovereign IP Estate, held by:
+
+  Bel Esprit D'Accord Irrevocable Trust (EIN 42-697643)
+  SnapKitty Collective Limited (FLP)
+
+  Operators: Ahmad Ali Parr · Jessica Westerhoff
+  Contact:   ahmedparr93@gmail.com | jessicalw34@gmail.com
+  Web:       https://github.com/SNAPKITTYWEST
+
+All repositories under github.com/SNAPKITTYWEST and
+github.com/BEL-ESPRIT-D-ACCORD-TRUST-HOLDINGS constitute a single
+unified IP estate. Licensing of one component does not grant rights
+to any other component.
+
+================================================================================
+
+PATENT NOTICE
+
+No patent license is granted by this license. If you initiate patent
+litigation against the copyright holder, any co-author, or any
+downstream user of this software — including cross-claims or
+counterclaims — your license under this software terminates
+automatically and immediately without notice.
+
+================================================================================
+
+LITIGATION WARNING
+
+Willful infringement of this license entitles the copyright holder to
+seek the maximum available remedies under applicable law, including:
+
+  - Statutory damages for willful infringement
+  - Recovery of attorneys fees and litigation costs
+  - Injunctive relief to prevent continued infringement
+  - Disgorgement of profits derived from infringing use
+
+Jurisdiction: State of [jurisdiction TBD by counsel]
+Governing Law: Laws of the United States of America
+
+Any use of this software beyond the permissions granted in the LICENSE
+file constitutes infringement and triggers these remedies.
+
+================================================================================
+
+STRONG COPYLEFT NETWORK NOTICE
+
+Any deployment of this software over a network — including SaaS,
+API services, hosted tools, or managed services — triggers the
+AGPL-3.0 license option. Network deployment is NOT eligible for
+the MPL-2.0 option. The policy engine enforces this:
+
+  saas_wrapper          → AGPL-3.0 (mandatory)
+  network_deployment    → AGPL-3.0 (mandatory)
+  api_service           → AGPL-3.0 (mandatory)
+  enterprise_restricted → BSL-1.1
+  file_level_mod        → MPL-2.0 (non-network only)
+  research_evaluation   → BSL-1.1 (free)
+
+If you deploy this software over a network, you MUST release all
+modified and combined source code under AGPL-3.0. There is no
+exception. There is no opt-out. The copyleft follows the network.
+
+================================================================================
+
+ATTRIBUTION REQUIREMENTS
+
+Any permitted use must display the following in documentation,
+UI, and all derivative works:
+
+  "Built with SnapKitty sovereign software.
+   Copyright (C) 2026 Bel Esprit D'Accord Irrevocable Trust.
+   https://github.com/SNAPKITTYWEST"
+
+Removing, obscuring, or misrepresenting this attribution
+constitutes willful infringement.
+
+================================================================================
+
+Copyright (C) 2026 Bel Esprit D'Accord Irrevocable Trust (EIN 42-697643)
+All rights reserved except as expressly granted in the LICENSE file.
