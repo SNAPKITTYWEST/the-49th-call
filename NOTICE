@@ -81,3 +81,46 @@ constitutes willful infringement.
 
 Copyright (C) 2026 Bel Esprit D'Accord Irrevocable Trust (EIN 42-697643)
 All rights reserved except as expressly granted in the LICENSE file.
+
+================================================================================
+
+PUBLISHED PRIOR ART — ZENODO DOI RECORD
+
+The following peer-reviewed, DOI-stamped publications establish prior art
+for all IP in this repository and across the SnapKitty sovereign stack.
+Both works are immutable, publicly timestamped, and citable in any
+legal, academic, or patent proceeding.
+
+Publication 1:
+  Title:   The Sovereign Stack: From Attention Exhaustion to
+           Computational Jurisdiction — A Unified Theory of
+           Deterministic Agent Architecture
+  Authors: Ahmad Ali Parr, Jessica Westerhoff
+  DOI:     10.5281/zenodo.21816366
+  Date:    2026-08-06
+  URL:     https://zenodo.org/records/21816366
+  Covers:  Sovereign Tick Runtime, Jordan-algebraic routing,
+           NAND completeness kernel, Phase Mirror Dissonance,
+           Softmax simplex critique, HyperKitty constraint DSL,
+           Resonance block capture, proof-gated deterministic
+           execution, cryptographic provenance methodology.
+
+Publication 2:
+  Title:   Erdos-789-lean/Idris-2 — Erdos-Straus Distinct-Sum-Sizes
+           Problem: An Elementary Quadratic Lower Bound for the
+           Greedy Sequence
+  Authors: Ahmad Ali Parr
+  DOI:     10.5281/zenodo.21869107
+  Date:    2026-08-10
+  URL:     https://zenodo.org/records/21869107
+  Covers:  Elementary combinatorial proof of g_k >= (k^2+1)/2,
+           O(sqrt(n)) extremal bound, Straus 1966 upper bound
+           recovery, Lean 4 + Idris 2 dual formalization,
+           gap-counting framework for DSS construction.
+
+Any claim of independent invention of the mathematical results,
+architectural patterns, or formal verification structures described
+in these publications must predate the DOI timestamps above.
+No such prior claim exists.
+
+================================================================================
